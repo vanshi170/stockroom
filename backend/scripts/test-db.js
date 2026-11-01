@@ -1,4 +1,6 @@
 require('dotenv').config();
+const dns = require('dns');
+try { dns.setServers(['8.8.8.8', '8.8.4.4', '1.1.1.1']); } catch(e) {}
 const prisma = require('../src/config/db');
 const mongoose = require('mongoose');
 const ActivityLog = require('../src/models/activityLog.model');

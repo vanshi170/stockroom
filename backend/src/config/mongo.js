@@ -1,5 +1,13 @@
 const mongoose = require('mongoose');
 const logger = require('./logger');
+const dns = require('dns');
+
+// Ensure reliable SRV DNS resolution across all environments (including Windows local dev)
+try {
+  dns.setServers(['8.8.8.8', '8.8.4.4', '1.1.1.1']);
+} catch (e) {
+  // Ignore if custom dns servers cannot be set
+}
 
 let isConnected = false;
 
