@@ -26,10 +26,13 @@ app.use(express.urlencoded({ extended: true }));
 // Centralized Request Logger
 app.use(requestLogger);
 
-// API Version 1 Routes
+// API Version 1 Routes (standard REST specification)
 app.use('/api/v1', v1Router);
+// Fallback aliases so requests to /api or direct endpoints (/overview, /health) never 404
+app.use('/api', v1Router);
+app.use(v1Router);
 
-// Fallback for root path
+// Fallback for root path documentation
 app.get('/', (req, res) => {
   res.status(200).json({
     name: 'Stockroom API',
