@@ -6,3 +6,4 @@ const stockController = require('../controllers/stock.controller');
 router.get('/', stockController.getStockMovements);
 
 module.exports = router;
+

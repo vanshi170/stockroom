@@ -37,3 +37,4 @@ export function MovementTypeBadge({ type }) {
   }
   return <span className="badge badge-neutral">{type}</span>;
 }
+

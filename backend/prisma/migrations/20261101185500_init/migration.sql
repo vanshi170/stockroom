@@ -126,3 +126,4 @@ ALTER TABLE "order_items" ADD CONSTRAINT "order_items_productId_fkey" FOREIGN KE
 
 -- AddForeignKey
 ALTER TABLE "stock_movements" ADD CONSTRAINT "stock_movements_productId_fkey" FOREIGN KEY ("productId") REFERENCES "products"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+

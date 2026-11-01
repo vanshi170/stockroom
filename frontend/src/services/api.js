@@ -106,3 +106,4 @@ export const api = {
   // Health
   checkHealth: () => request('/health'),
 };
+

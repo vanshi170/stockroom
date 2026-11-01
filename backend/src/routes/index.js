@@ -48,3 +48,4 @@ router.use('/stock-movements', stockRoutes);
 router.use('/activity-logs', activityLogRoutes);
 
 module.exports = router;
+

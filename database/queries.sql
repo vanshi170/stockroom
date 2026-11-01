@@ -221,3 +221,4 @@ INSERT INTO stock_movements ("productId", type, quantity, "previousStock", "newS
 VALUES (1, 'Purchase Order Received', 25, 45, 70, 'Received PO #1', NOW());
 
 COMMIT;
+

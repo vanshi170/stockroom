@@ -9,3 +9,4 @@ router.get('/', activityLogController.listActivityLogs);
 router.get('/:id', activityLogController.getActivityLogById);
 
 module.exports = router;
+

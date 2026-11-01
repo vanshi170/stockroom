@@ -57,3 +57,4 @@ activityLogSchema.statics.record = async function (logData) {
 const ActivityLog = mongoose.model('ActivityLog', activityLogSchema);
 
 module.exports = ActivityLog;
+

@@ -368,3 +368,4 @@ module.exports = {
   updateProduct,
   deleteProduct,
 };
+

@@ -57,3 +57,4 @@ start().catch((err) => {
   console.error('Error starting embedded postgres:', err);
   process.exit(1);
 });
+

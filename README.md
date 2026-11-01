@@ -416,3 +416,4 @@ Stockroom deliberately departs from boilerplate SaaS dashboards:
 - **Clutter-Free**: No gratuitous 3D graphs, glassmorphic blur, or neon AI gradients.
 - **Top Navigation**: Clean horizontal header keeping all inventory areas one click away while maximizing vertical data density for scanning tables.
 - **Responsive**: Fully functional on desktop, tablet, and mobile screens.
+

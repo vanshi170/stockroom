@@ -102,3 +102,4 @@ model StockMovement {
   @@index([createdAt])
   @@map("stock_movements")
 }
+

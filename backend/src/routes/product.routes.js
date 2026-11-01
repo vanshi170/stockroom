@@ -22,3 +22,4 @@ router.delete('/:id', productController.deleteProduct);
 router.post('/:id/stock', stockController.adjustProductStock);
 
 module.exports = router;
+
