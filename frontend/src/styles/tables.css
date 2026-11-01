@@ -1,0 +1,87 @@
+/* Data Tables */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.88rem;
+}
+
+.data-table th {
+  background-color: var(--bg-surface-subtle);
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+
+.data-table td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  vertical-align: middle;
+}
+
+.data-table tbody tr {
+  transition: background-color var(--transition-fast);
+}
+
+.data-table tbody tr:hover {
+  background-color: var(--bg-hover);
+}
+
+.data-table td.actions-cell {
+  white-space: nowrap;
+  text-align: right;
+}
+
+.data-table th.actions-col {
+  text-align: right;
+}
+
+.data-table th.num-col,
+.data-table td.num-col {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.table-row-clickable {
+  cursor: pointer;
+}
+
+.table-link {
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.table-link:hover {
+  color: var(--accent-primary);
+  text-decoration: underline;
+}
+
+/* Simple List Group */
+.simple-list {
+  list-style: none;
+}
+
+.simple-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.88rem;
+}
+
+.simple-list-item:last-child {
+  border-bottom: none;
+}

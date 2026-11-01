@@ -1,0 +1,104 @@
+// Prisma schema for Stockroom Inventory Management System
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Category {
+  id          Int       @id @default(autoincrement())
+  name        String    @unique
+  description String?
+  createdAt   DateTime  @default(now())
+  products    Product[]
+
+  @@map("categories")
+}
+
+model Supplier {
+  id             Int             @id @default(autoincrement())
+  name           String
+  contactPerson  String
+  email          String
+  phone          String
+  address        String?
+  createdAt      DateTime        @default(now())
+  products       Product[]
+  purchaseOrders PurchaseOrder[]
+
+  @@map("suppliers")
+}
+
+model Product {
+  id             Int             @id @default(autoincrement())
+  name           String
+  sku            String          @unique
+  description    String?
+  categoryId     Int
+  category       Category        @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  supplierId     Int
+  supplier       Supplier        @relation(fields: [supplierId], references: [id], onDelete: Restrict)
+  price          Decimal         @db.Decimal(10, 2)
+  quantity       Int             @default(0)
+  minStockLevel  Int             @default(5)
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  orderItems     OrderItem[]
+  stockMovements StockMovement[]
+
+  @@index([sku])
+  @@index([name])
+  @@index([categoryId])
+  @@index([supplierId])
+  @@map("products")
+}
+
+model PurchaseOrder {
+  id          Int         @id @default(autoincrement())
+  supplierId  Int
+  supplier    Supplier    @relation(fields: [supplierId], references: [id], onDelete: Restrict)
+  status      String      @default("PENDING") // PENDING, RECEIVED, CANCELLED
+  totalAmount Decimal     @db.Decimal(10, 2)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  items       OrderItem[]
+
+  @@index([status])
+  @@map("purchase_orders")
+}
+
+model OrderItem {
+  id              Int           @id @default(autoincrement())
+  purchaseOrderId Int
+  purchaseOrder   PurchaseOrder @relation(fields: [purchaseOrderId], references: [id], onDelete: Cascade)
+  productId       Int
+  product         Product       @relation(fields: [productId], references: [id], onDelete: Restrict)
+  quantity        Int
+  unitPrice       Decimal       @db.Decimal(10, 2)
+  subtotal        Decimal       @db.Decimal(10, 2)
+
+  @@index([purchaseOrderId])
+  @@index([productId])
+  @@map("order_items")
+}
+
+model StockMovement {
+  id            Int      @id @default(autoincrement())
+  productId     Int
+  product       Product  @relation(fields: [productId], references: [id], onDelete: Restrict)
+  type          String   // 'Stock In', 'Stock Out', 'Purchase Order Received'
+  quantity      Int
+  previousStock Int
+  newStock      Int
+  note          String?
+  createdAt     DateTime @default(now())
+
+  @@index([productId])
+  @@index([createdAt])
+  @@map("stock_movements")
+}

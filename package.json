@@ -1,0 +1,26 @@
+{
+  "name": "stockroom",
+  "version": "1.0.0",
+  "description": "Stockroom — Full-Stack Inventory Management System",
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "start:backend": "cd backend && npm start",
+    "build:frontend": "cd frontend && npm run build",
+    "test:e2e": "cd backend && node scripts/run-e2e-tests.js",
+    "db:setup": "cd backend && node scripts/start-local-postgres.js",
+    "prisma:generate": "cd backend && npx prisma generate",
+    "prisma:seed": "cd backend && node prisma/seed.js"
+  },
+  "keywords": [
+    "inventory",
+    "react",
+    "express",
+    "postgresql",
+    "prisma",
+    "mongodb",
+    "mongoose"
+  ],
+  "author": "",
+  "license": "ISC"
+}
